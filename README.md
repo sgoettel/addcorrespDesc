@@ -48,8 +48,8 @@ The modified XML files will be saved to the same location as the original files,
 
 `addcorrespDesc.py` requires the `lxml` and `csv` libraries to be installed. You can install these libraries using `pip` by running the following commands:
 
-`pip install lxml
-pip install csv` 
+`pip install lxml`
+`pip install csv` 
 
 
 If you find this script helpful or have any suggestions for improvement, please feel free to contribute to the project on GitHub.
