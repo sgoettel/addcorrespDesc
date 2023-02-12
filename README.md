@@ -42,7 +42,7 @@ with open(new_filename, "wb") as f:
 
 You can add these lines after the line that adds the <correspDesc> element to the header, and before the end of the for loop.
 
-The modified XML files will be saved to the same location as the original files, with the same filename.
+Otherwise, the modified XML files will be saved to the same location as the original files, with the same filename.
 
 ## Requirements
 
