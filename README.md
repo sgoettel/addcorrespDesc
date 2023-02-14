@@ -6,6 +6,12 @@ There is the (admittedly rather rare) use case that one has a list/overview (CSV
 
 As sample data, some letters and the corresponding CSV from the project ["Forschung Daniel Sanders"](https://sanders.bbaw.de/briefwechsel/korpus) are in the repository.
 
+## Requirements
+
+`addcorrespDesc.py` requires the `lxml` library to be installed. You can install these libraries using `pip` by running the following commands:
+
+`pip install lxml`
+
 ## Usage
 
 To use the script, you will need a collection of your TEI-encoded letters and a CSV file containing the metadata for the letters. The CSV file should contain one row of data for each letter, with the following columns:
@@ -44,11 +50,7 @@ You can add these lines after the line that adds the <correspDesc> element to th
 
 Otherwise, the modified XML files will be saved to the same location as the original files, with the same filename.
 
-## Requirements
-
-`addcorrespDesc.py` requires the `lxml` library to be installed. You can install these libraries using `pip` by running the following commands:
-
-`pip install lxml`
-
 
 If you find this script helpful or have any suggestions for improvement, please feel free to contribute to the project on GitHub.
+
+P.S: I'm still working on this and can't find the bug yet, but seems that there is no way to get `xml_declaration=True` to work in this case (alway changes double quotes `"` to single quotes `'`. However, you can add the desired XML declaration to the output file by using the doctype parameter in the `etree.tostring()`, which is `<?xml version="1.0" encoding="UTF-8"?>` (as implemented in the script right now).
