@@ -1,8 +1,8 @@
 # addcorrespDesc.py
 
-There is the (admittedly rather rare) use case that one has a list (CSV) with all relevant information about a letter, but this information is not yet in the TEI header. This script reads the CSV file and integrates all the relevant information into the `<correspDesc>` element based on the information in the table. The script can be easily adapted to fit the user's specific needs.
+`addcorrespDesc.py` is a Python script designed to add the element `<correspDesc>` to TEI-encoded letters in XML format. The element `<correspDesc>` contains information about the sender, receiver, date, and location of the letter, and can be used to extract metadata from the letters for analysis or visualization.
 
-`addcorrespDesc.py` is a Python script designed to add the element `<correspDesc>`  to TEI-encoded letters in XML format. The element `<correspDesc>` contains information about the sender, receiver, date, and location of the letter, and can be used to extract metadata from the letters for analysis or visualization.
+There is the (admittedly rather rare) use case that one has a list/overview (CSV) with all relevant information about a letter/postcard, but this information is not yet in the TEI header. This script reads the CSV file and integrates all the relevant information into the `<correspDesc>` element based on the information in the table. The script can be easily adapted to fit the user's specific needs.
 
 As sample data, some letters and the corresponding CSV from the project ["Forschung Daniel Sanders"](https://sanders.bbaw.de/briefwechsel/korpus) are in the repository.
 
@@ -49,6 +49,7 @@ Otherwise, the modified XML files will be saved to the same location as the orig
 `addcorrespDesc.py` requires the `lxml` and `csv` libraries to be installed. You can install these libraries using `pip` by running the following commands:
 
 `pip install lxml`
+
 `pip install csv` 
 
 
