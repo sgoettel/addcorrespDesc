@@ -69,7 +69,8 @@ with open("metadata.csv", "r") as file:
 
             # Write the updated XML file
             with open(filename, "wb") as f:
-                f.write(etree.tostring(tree, encoding="UTF-8", xml_declaration=True, pretty_print=True))
+                f.write(etree.tostring(tree, encoding='UTF-8', doctype='<?xml version="1.0" encoding="UTF-8"?>'))
+
 
         except Exception as e:
             errors.append(f"{row['file_name']}: {str(e)}")
