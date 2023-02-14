@@ -1,5 +1,4 @@
 import csv
-import os
 from lxml import etree
 
 # Namespaces
@@ -7,6 +6,9 @@ ns = {
     "tei": "http://www.tei-c.org/ns/1.0",
     "ns0": "http://relaxng.org/ns/structure/1.0",
 }
+
+# Create a parser that keeps CDATA sections
+parser = etree.XMLParser(strip_cdata=False)
 
 # Read the CSV file
 with open("metadata.csv", "r") as file:
@@ -17,7 +19,7 @@ with open("metadata.csv", "r") as file:
             # Get the filename from the "file_name" column
             filename = row["file_name"]
             # Read the XML file
-            tree = etree.parse(filename)
+            tree = etree.parse(filename, parser)
             root = tree.getroot()
 
             # Create the <correspDesc> element
@@ -67,7 +69,7 @@ with open("metadata.csv", "r") as file:
 
             # Write the updated XML file
             with open(filename, "wb") as f:
-                f.write(etree.tostring(tree, encoding="utf-8", pretty_print=True))
+                f.write(etree.tostring(tree, encoding="UTF-8", xml_declaration=True, pretty_print=True))
 
         except Exception as e:
             errors.append(f"{row['file_name']}: {str(e)}")
