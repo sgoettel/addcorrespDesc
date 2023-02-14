@@ -14,7 +14,9 @@ As sample data, some letters (with missing `<correspDesc>` elements) and the cor
 
 ## Usage
 
-To use the script, you will need a collection of your TEI-encoded letters and a CSV file containing the metadata for the letters. The CSV file should contain one row of data for each letter, with the following columns:
+`python3 addcorrespDesc.py` (XML files and CSV need to be in the same directory as the script)
+
+To use the script, you will need a collection of your TEI-encoded letters and a CSV file containing the metadata for the letters (you can use he sample datat for testing). The CSV file should contain one row of data for each letter, with the following columns:
 
 -   `file_name`: the exact name of the XML file containing the TEI-encoded letter.
 -   `sender_ref`: a reference to the person who sent the letter (e.g., a GND or Wikidata ID).
