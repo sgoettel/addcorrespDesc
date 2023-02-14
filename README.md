@@ -1,6 +1,6 @@
 # addcorrespDesc.py
 
-`addcorrespDesc.py` is a Python script designed to add the element `<correspDesc>` to TEI-encoded letters in XML format. The element `<correspDesc>` contains information about the sender, receiver, date, and location of the letter, and can be used to extract metadata from the letters for analysis or visualization.
+`addcorrespDesc.py` is a Python script designed to add the element `<correspDesc>` to TEI-encoded letters. The element `<correspDesc>` contains information about the sender, receiver, date, and location of the letter/postcard.
 
 There is the (admittedly rather rare) use case that one has a list/overview (CSV) with all relevant information about a letter/postcard, but this information is not yet in the TEI header. This script reads the CSV file and integrates all the relevant information into the `<correspDesc>` element based on the information in the table. The script can be easily adapted to fit the user's specific needs.
 
@@ -43,7 +43,7 @@ new_filename = os.path.splitext(filename)[0] + "_corresp.xml"
 ```
 # Write the updated XML file to the new filename
 with open(new_filename, "wb") as f:
-    f.write(etree.tostring(tree, encoding='utf-8', pretty_print=True))
+    f.write(etree.tostring(tree, encoding='UTF-8', doctype='<?xml version="1.0" encoding="UTF-8"?>'))
 ```
 
 You can add these lines after the line that adds the <correspDesc> element to the header, and before the end of the for loop.
@@ -51,6 +51,6 @@ You can add these lines after the line that adds the <correspDesc> element to th
 Otherwise, the modified XML files will be saved to the same location as the original files, with the same filename.
 
 
-If you find this script helpful or have any suggestions for improvement, please feel free to contribute to the project on GitHub.
+If you find this script helpful or have any suggestions for improvement, please feel free to contribute.
 
 P.S: I'm still working on this and can't find the bug yet, but seems that there is no way to get `xml_declaration=True` to work in this case (alway changes double quotes `"` to single quotes `'`. However, you can add the desired XML declaration to the output file by using the doctype parameter in the `etree.tostring()`, which is `<?xml version="1.0" encoding="UTF-8"?>` (as implemented in the script right now).
